@@ -1,0 +1,7 @@
+
+export SYSROOT = /home/cad/Pobrane/android-ndk-r8/platforms/android-9/arch-arm
+export CC = /home/cad/Pobrane/android-ndk-r8/toolchains/arm-linux-androideabi-4.4.3/prebuilt/linux-x86/bin/arm-linux-androideabi-gcc --sysroot=$SYSROOT
+
+
+$CC  "/home/cad/kodowanie/mrowki/main.cpp" -O2 -Wall  -o /home/cad/kodowanie/mrowki/release/mrowki_CField.o -I$SYSROOT/usr/include/
+ncurses -I$SYSROOT/usr/include -L$SYSROOT/usr/lib 
