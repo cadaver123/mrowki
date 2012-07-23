@@ -6,7 +6,7 @@ $CC -c  "/home/cad/kodowanie/mrowki/CAnt.cpp" -O2 -Wall  -o /home/cad/kodowanie/
 $CC -c  "/home/cad/kodowanie/mrowki/CField.cpp" -O2 -Wall  -o /home/cad/kodowanie/mrowki/release/CField.o -I$NCURSES/include/ncurses -I$NCURSES/include  -I$CPPI -I$CPPI/arm-elf/ -I$CPPI/arm-elf/bits/ -I$SYSROOT/usr/include/ -I.
 $CC -c  "/home/cad/kodowanie/mrowki/main.cpp" -O2 -Wall  -o /home/cad/kodowanie/mrowki/release/main.o -I$NCURSES/include/ncurses -I$NCURSES/include  -I$CPPI -I$CPPI/arm-elf/ -I$CPPI/arm-elf/bits/ -I$SYSROOT/usr/include/ -I.
 
-$CC -o "/home/cad/kodowanie/mrowki/release/mrowki-android" release/CAnt.o release/CField.o release/main.o  -static $NCURSES/lib/libncurses.a -static $SYSROOT/usr/lib/libm.a -static  /home/cad/Pobrane/android-ndk-r8/sources/cxx-stl/gnu-libstdc++/libs/armeabi/libsupc++.a -static /home/cad/Pobrane/android-ndk-r8/sources/cxx-stl/gnu-libstdc++/libs/armeabi/libgnustl_static.a
+$CC -o "/home/cad/kodowanie/mrowki/release/mrowki-android"  CAnt.o CField.o main.o  -static $NCURSES/lib/libncurses.a -static $SYSROOT/usr/lib/libm.a -static  /home/cad/Pobrane/android-ndk-r8/sources/cxx-stl/gnu-libstdc++/libs/armeabi/libsupc++.a -static /home/cad/Pobrane/android-ndk-r8/sources/cxx-stl/gnu-libstdc++/libs/armeabi/libgnustl_static.a
 
 
 
