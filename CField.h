@@ -17,8 +17,18 @@ public:
 	void CField_loop();
 	int FEnterOnF(CAnt &);
 	int FLeaveF(CAnt &);
-	
+
+	void setAvailable(bool);
 	
 	bool FBase;
-
+	
+	inline bool isAvailable();
+	inline bool isFoodHere();
+	inline bool isBaseHere();
+private:
+	bool available;
 };
+
+
+bool doesFieldExist(int x,int y) ;
+bool areThoseOldCoordsOfAnt(CAnt const &,int, int);

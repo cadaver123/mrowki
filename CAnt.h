@@ -1,9 +1,16 @@
-#define max_x 28
-#define max_y 20
-#include <complex>
-using namespace std;
+#define max_x 30
+#define max_y 25
+#define _USE_MATH_DEFINES
+#ifndef M_PI_4
+#define M_PI_4 0.785398163397448309616
+#endif  //  M_PI_4
 
-typedef complex<float> complx;
+
+#include <complex>
+#include "complexx.h"
+
+
+
 
 extern const float AMaxLoot;
 extern const float AMaxFoodLoadCap;
@@ -17,13 +24,28 @@ class CField;
 class CAntInvetory;
 
 
-complx complx_norm(complx);
 
 
-struct ASniffResult {
-		complx Left, Right, Up, Down, LeftUpperCorn, RightUpperCorn, LeftBottomCorn, RightBottomCorn;
-		ASniffResult();
-	};
+class AntSniffResult {
+public:
+	complx Left;
+	complx Right;
+	complx Up;
+	complx Down;
+	complx LeftUpperCorn;
+	complx RightUpperCorn;
+	complx LeftBottomCorn;
+	complx RightBottomCorn;
+	complx phero;
+	complx nearbase; 
+	complx nearfood;
+	bool isBaseNear();
+	bool isFoodNear();
+	AntSniffResult() ;
+private:
+	int numOfmembers_;
+};
+
 	
 class CAnt {
 public:
@@ -41,15 +63,16 @@ public:
 		~CAnt();
 		
 		void CAntLoop(); //podstawowa pętla dla mrówki
-		complx ASniff(); //funkcja badajca podstawowe feromony 
-		void AMove(complx /*, bool*/); //funkcja odpowiedzialna za ruch mrówki
+		AntSniffResult & ASniff(); //funkcja badajca podstawowe feromony 
+		void AMove(AntSniffResult & /*, bool*/); //funkcja odpowiedzialna za ruch mrówki
 		
 		//Obsługa statutusu mrówki Status:
 		inline void AStartSearchFood(); //Mrówka zaczyna szukać jedzenia
 		inline void AGoToBase();
 
+
 		protected:
-		ASniffResult * NearFieldsPheroLvL;
+		AntSniffResult * NearFieldsPheroLvL;
 		short int ABasicStatus;
 		inline void AStatSet(int);
 };
@@ -62,5 +85,6 @@ class CAntInvetory
 		
 		CAntInvetory(CAnt*);
 };
+
 
 
